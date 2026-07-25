@@ -433,3 +433,42 @@ font-size:14px;
 color:#555;
 
 }
+
+#adminPanel {
+
+background:white;
+
+margin:20px auto;
+
+padding:20px;
+
+max-width:500px;
+
+border-radius:15px;
+
+box-shadow:
+0 3px 10px rgba(0,0,0,0.15);
+
+}
+
+
+#adminPanel select,
+#adminPanel textarea,
+#adminPanel button {
+
+width:100%;
+
+margin-top:10px;
+
+padding:12px;
+
+font-size:16px;
+
+}
+
+
+#adminPanel textarea {
+
+height:100px;
+
+}
