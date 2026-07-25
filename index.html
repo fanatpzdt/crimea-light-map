@@ -2,134 +2,115 @@
 <html lang="ru">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крым Свет</title>
 
-<title>Крым Свет</title>
-
-<link rel="stylesheet" href="style.css">
-
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
 <header>
 
-<div class="logo">
-    💡 Крым Свет
-</div>
+    <div class="logo">
+        💡 Крым Свет
+    </div>
 
-<div class="subtitle">
-    Мониторинг электроснабжения населённых пунктов
-</div>
+    <div class="subtitle">
+        Мониторинг электроснабжения населённых пунктов
+    </div>
 
+    <input
+        id="search"
+        type="text"
+        placeholder="🔎 Поиск населённого пункта..."
+    >
 
-<input 
-id="search" 
-type="text" 
-placeholder="🔎 Поиск населённого пункта..."
->
+    <div id="searchResults"></div>
 
-<div id="searchResults"></div>
-    
 </header>
 
 
+<div class="filters">
 
+    <button onclick="filterPlaces('all')">
+        Все
+    </button>
 
-    <div class="filters">
+    <button onclick="filterPlaces('green')">
+        🟢 Есть свет
+    </button>
 
-<button onclick="filterPlaces('all')">
-Все
-</button>
+    <button onclick="filterPlaces('yellow')">
+        🟡 Ограничения
+    </button>
 
-<button onclick="filterPlaces('green')">
-🟢 Есть свет
-</button>
-
-<button onclick="filterPlaces('yellow')">
-🟡 Ограничения
-</button>
-
-<button onclick="filterPlaces('red')">
-🔴 Нет света
-</button>
-
-</div>
-    
-    <div id="updateInfo">
-Последнее обновление: загрузка...
-</div>
-    
-<span class="green"></span>
-Свет есть
-</div>
-
-
-<div>
-<span class="yellow"></span>
-Ограничения
-</div>
-
-
-<div>
-<span class="red"></span>
-Нет света
-</div>
+    <button onclick="filterPlaces('red')">
+        🔴 Нет света
+    </button>
 
 </div>
 
 
+<div id="updateInfo">
+    Последнее обновление: загрузка...
+</div>
+
+
+<div class="legend">
+
+    <div>
+        <span class="green"></span>
+        Свет есть
+    </div>
+
+    <div>
+        <span class="yellow"></span>
+        Ограничения
+    </div>
+
+    <div>
+        <span class="red"></span>
+        Нет света
+    </div>
+
+</div>
 
 
 <div id="map"></div>
 
 
-
-
 <div id="info">
 
-<h2 id="placeName">
-Выберите объект
-</h2>
+    <h2 id="placeName">
+        Выберите объект
+    </h2>
 
-<div id="placeStatus">
-</div>
+    <div id="placeStatus"></div>
 
-<p id="placeRegion">
-</p>
+    <p id="placeRegion"></p>
 
-<p id="placeUpdated">
-</p>
+    <p id="placeUpdated"></p>
 
-<p id="placeNote">
-</p>
+    <p id="placeNote"></p>
 
 </div>
-
 
 
 <footer>
 
-💡 Крым Свет  
-<br>
-Мониторинг электроснабжения населённых пунктов
+    💡 Крым Свет
+    <br>
+    Мониторинг электроснабжения населённых пунктов
 
 </footer>
-
-
-
 
 
 <script src="https://api-maps.yandex.ru/2.1/?apikey=90ca4e26-31f0-4cef-88ab-86ca6f92c5c4&lang=ru_RU"></script>
 
 <script src="app.js"></script>
 
-
 </body>
-
 </html>
