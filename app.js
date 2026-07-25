@@ -1,101 +1,149 @@
-// Создание карты
-const map = L.map('map').setView(
-    [45.3, 34.2],
-    8
-);
-
-
-// Карта OpenStreetMap
-L.tileLayer(
-'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
-{
-    maxZoom:19,
-    attribution:'© Crimea Light Map | OpenStreetMap contributors'
-}
-).addTo(map);
-
-
-
+let map;
 let places = [];
 
 
-// Загружаем данные
-fetch("data/places.json")
-    .then(response => response.json())
-    .then(data => {
-
-        places = data;
-
-        data.forEach(place => {
-
-            let marker = L.marker([
-                place.lat,
-                place.lng
-            ])
-            .addTo(map);
+ymaps.ready(init);
 
 
-            marker.bindPopup(`
-                <b>${place.name}</b><br>
-                Район: ${place.region}<br>
-                Статус:
-                <span class="${place.statusClass}">
-                ${place.status}
-                </span>
-            `);
+function init() {
 
+    map = new ymaps.Map("map", {
 
-            marker.on("click", function(){
+        center: [
+            45.3,
+            34.2
+        ],
 
-                document.getElementById("info").innerHTML = `
-                <h2>${place.name}</h2>
+        zoom: 8,
 
-                <p>
-                Район: ${place.region}
-                </p>
-
-                <p>
-                Свет:
-                <span class="${place.statusClass}">
-                ${place.status}
-                </span>
-                </p>
-                `;
-            });
-
-        });
+        controls: [
+            'zoomControl'
+        ]
 
     });
 
 
+    fetch("data/places.json")
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        places = data;
 
 
-// Поиск
+        data.forEach(place => {
+
+
+            let marker = new ymaps.Placemark(
+
+                [
+                    place.lat,
+                    place.lng
+                ],
+
+                {
+
+                    balloonContent:
+
+                    `
+                    <b>${place.name}</b>
+                    <br>
+                    Район: ${place.region}
+                    <br>
+                    Статус:
+                    ${place.status}
+                    `
+
+                },
+
+                {
+
+                    preset:
+                    getColor(place.status)
+
+                }
+
+            );
+
+
+            map.geoObjects.add(marker);
+
+
+        });
+
+
+    });
+
+
+}
+
+
+
+function getColor(status) {
+
+
+    if(status.includes("Нет"))
+
+        return "islands#redDotIcon";
+
+
+    if(status.includes("Огранич"))
+
+        return "islands#yellowDotIcon";
+
+
+    return "islands#greenDotIcon";
+
+
+}
+
+
+
+
 document
 .getElementById("search")
 .addEventListener(
+
 "input",
+
 function(){
 
-    let text = this.value.toLowerCase();
+
+let text =
+this.value.toLowerCase();
 
 
-    let found = places.find(place =>
-        place.name.toLowerCase()
-        .includes(text)
-    );
+
+let found =
+places.find(place =>
+
+place.name
+.toLowerCase()
+.includes(text)
+
+);
 
 
-    if(found){
 
-        map.setView(
-            [
-                found.lat,
-                found.lng
-            ],
-            12
-        );
+if(found){
 
-    }
 
-});
+map.setCenter(
+
+[
+found.lat,
+found.lng
+],
+
+12
+
+);
+
+
+}
+
+
+}
+
+);
