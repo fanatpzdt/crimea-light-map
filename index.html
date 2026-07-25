@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crimea Light Map</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet карта -->
+    <link 
+        rel="stylesheet" 
+        href="https://unpkg.com/leaflet/dist/leaflet.css"
+    />
+</head>
+
+<body>
+
+<header>
+    <h1>💡 Crimea Light Map</h1>
+    <input 
+        id="search" 
+        type="text" 
+        placeholder="Поиск населённого пункта..."
+    >
+</header>
+
+
+<div id="map"></div>
+
+
+<div id="info">
+    <h2>Статус электроснабжения</h2>
+    <p>Нажмите на точку на карте</p>
+</div>
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script src="app.js"></script>
+
+</body>
+</html>
