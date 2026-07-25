@@ -5,7 +5,9 @@
         "lat": 44.9521,
         "lng": 34.1024,
         "status": "Есть свет",
-        "statusClass": "status-on"
+        "statusCode": "green",
+        "updated": "25.07.2026 12:00",
+        "note": "Работа в штатном режиме"
     },
 
     {
@@ -14,7 +16,9 @@
         "lat": 44.4952,
         "lng": 34.1663,
         "status": "Ограничения",
-        "statusClass": "status-warning"
+        "statusCode": "yellow",
+        "updated": "25.07.2026 12:00",
+        "note": "Проводятся плановые работы"
     },
 
     {
@@ -23,6 +27,8 @@
         "lat": 45.3562,
         "lng": 36.4675,
         "status": "Нет света",
-        "statusClass": "status-off"
+        "statusCode": "red",
+        "updated": "25.07.2026 12:00",
+        "note": "Аварийные работы"
     }
 ]
