@@ -105,7 +105,33 @@ function init() {
 
 
             map.geoObjects.add(marker);
+marker.events.add('click', function () {
 
+    document.getElementById("placeName").innerHTML =
+    place.name;
+
+
+    document.getElementById("placeStatus").innerHTML =
+    "Статус: <b class='" 
+    + place.statusCode +
+    "'>"
+    + place.status +
+    "</b>";
+
+
+    document.getElementById("placeRegion").innerHTML =
+    "Район: " + place.region;
+
+
+    document.getElementById("placeUpdated").innerHTML =
+    "Обновлено: " + place.updated;
+
+
+    document.getElementById("placeNote").innerHTML =
+    "ℹ " + place.note;
+
+});
+            
             markers.push({
     marker: marker,
     status: place.statusCode
