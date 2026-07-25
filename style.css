@@ -326,3 +326,42 @@ footer {
 
 
 }
+
+#info {
+
+transition:0.3s;
+
+}
+
+
+#placeStatus {
+
+font-size:18px;
+
+margin:10px 0;
+
+}
+
+
+
+@media(max-width:700px){
+
+#info {
+
+position:fixed;
+
+bottom:10px;
+
+left:10px;
+
+right:10px;
+
+z-index:1000;
+
+margin:0;
+
+border-radius:15px;
+
+}
+
+}
