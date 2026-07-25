@@ -205,10 +205,11 @@ document.getElementById("searchResults");
 
 
 
+if (searchInput) {
+
 searchInput.addEventListener(
 "input",
 function(){
-
 
 let text =
 this.value.toLowerCase().trim();
@@ -228,11 +229,11 @@ if(text.length < 2){
 let results =
 places.filter(place =>
 
-place.name.toLowerCase().includes(text)
+(place.name || "").toLowerCase().includes(text)
 ||
-place.region.toLowerCase().includes(text)
+(place.region || "").toLowerCase().includes(text)
 ||
-place.type.toLowerCase().includes(text)
+(place.type || "").toLowerCase().includes(text)
 
 );
 
@@ -330,6 +331,8 @@ searchResults.appendChild(item);
 
 
 });
+    
+}
     
 function filterPlaces(type){
 
