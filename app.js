@@ -1,5 +1,6 @@
 let map;
 let places = [];
+let markers = [];
 
 
 ymaps.ready(init);
