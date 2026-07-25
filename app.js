@@ -36,10 +36,14 @@ function init() {
 
         places = data;
 
-let lastUpdate = places[0].updated;
+if (places.length > 0) {
 
-document.getElementById("updateInfo").innerHTML =
-"Последнее обновление: " + lastUpdate;
+    let lastUpdate = places[0].updated || "нет данных";
+
+    document.getElementById("updateInfo").innerHTML =
+    "Последнее обновление: " + lastUpdate;
+
+}
 
         fetch("data/status.json")
 
