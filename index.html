@@ -1,50 +1,109 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Crimea Light Map</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>Крым Свет</title>
 
-    <!-- Leaflet карта -->
-    <link 
+<link rel="stylesheet" href="style.css">
+
+<link 
 rel="stylesheet" 
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+href="https://unpkg.com/leaflet/dist/leaflet.css"
 />
-    <style>
-.leaflet-control-attribution {
-    font-size: 10px;
-    background: rgba(255,255,255,0.7);
-}
-</style>
+
 </head>
+
 
 <body>
 
+
 <header>
-    <h1>💡 Crimea Light Map TEST 2</h1>
-    <input 
-        id="search" 
-        type="text" 
-        placeholder="Поиск населённого пункта..."
-    >
+
+<div class="logo">
+    💡 Крым Свет
+</div>
+
+<div class="subtitle">
+    Мониторинг электроснабжения населённых пунктов
+</div>
+
+
+<input 
+id="search" 
+type="text" 
+placeholder="🔎 Поиск населённого пункта..."
+>
+
+
 </header>
+
+
+
+<div class="legend">
+
+<div>
+<span class="green"></span>
+Свет есть
+</div>
+
+
+<div>
+<span class="yellow"></span>
+Ограничения
+</div>
+
+
+<div>
+<span class="red"></span>
+Нет света
+</div>
+
+</div>
+
+
 
 
 <div id="map"></div>
 
 
+
+
 <div id="info">
-    <h2>Статус электроснабжения</h2>
-    <p>Нажмите на точку на карте</p>
+
+<h2>
+Информация
+</h2>
+
+<p>
+Выберите населённый пункт на карте
+</p>
+
 </div>
+
+
+
+
+<footer>
+
+💡 Крым Свет  
+<br>
+Данные карты © OpenStreetMap contributors
+
+</footer>
+
+
+
 
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script src="app.js"></script>
 
+
 </body>
+
 </html>
