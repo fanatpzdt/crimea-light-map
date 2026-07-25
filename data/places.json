@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Симферополь",
+        "region": "Симферопольский район",
+        "lat": 44.9521,
+        "lng": 34.1024,
+        "status": "Есть свет",
+        "statusClass": "status-on"
+    },
+
+    {
+        "name": "Ялта",
+        "region": "Южный берег Крыма",
+        "lat": 44.4952,
+        "lng": 34.1663,
+        "status": "Ограничения",
+        "statusClass": "status-warning"
+    },
+
+    {
+        "name": "Керчь",
+        "region": "Восточный Крым",
+        "lat": 45.3562,
+        "lng": 36.4675,
+        "status": "Нет света",
+        "statusClass": "status-off"
+    }
+]
