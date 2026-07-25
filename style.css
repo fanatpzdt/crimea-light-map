@@ -419,3 +419,17 @@ cursor:pointer;
 background:#f1f1f1;
 
 }
+
+#updateInfo {
+
+text-align:center;
+
+background:white;
+
+padding:8px;
+
+font-size:14px;
+
+color:#555;
+
+}
