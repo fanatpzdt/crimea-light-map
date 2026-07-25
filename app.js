@@ -39,6 +39,26 @@ let lastUpdate = places[0].updated;
 
 document.getElementById("updateInfo").innerHTML =
 "Последнее обновление: " + lastUpdate;
+
+        fetch("data/status.json")
+
+.then(response => response.json())
+
+.then(status => {
+
+
+document.getElementById("updateInfo").innerHTML =
+
+"Последнее обновление: "
++
+status.lastUpdate
++
+"<br>"
++
+status.message;
+
+
+});
         
         data.forEach(place => {
 
