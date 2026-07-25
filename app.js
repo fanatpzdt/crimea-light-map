@@ -7,11 +7,11 @@ const map = L.map('map').setView(
 
 // Карта OpenStreetMap
 L.tileLayer(
-    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
-    }
+'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+{
+    maxZoom:19,
+    attribution:'© OpenStreetMap contributors'
+}
 ).addTo(map);
 
 
