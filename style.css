@@ -363,7 +363,15 @@ margin:0;
 border-radius:15px;
 
 }
+    
+#searchResults {
 
+    top:100px;
+
+    width:95%;
+
+}
+    
 }
 
 #searchResults {
