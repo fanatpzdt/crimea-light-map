@@ -10,7 +10,7 @@ L.tileLayer(
 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
 {
     maxZoom:19,
-    attribution:'© OpenStreetMap contributors'
+    attribution:'© Crimea Light Map | OpenStreetMap contributors'
 }
 ).addTo(map);
 
