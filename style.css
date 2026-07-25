@@ -242,3 +242,116 @@ color:#f9a825;
 color:#c62828;
 
 }
+
+/* Мобильная версия */
+
+@media (max-width: 700px) {
+
+
+header {
+
+    padding: 12px;
+
+}
+
+
+.logo {
+
+    font-size: 22px;
+
+}
+
+
+.subtitle {
+
+    font-size: 13px;
+
+}
+
+
+#search {
+
+    width: 95%;
+
+    padding: 10px;
+
+    font-size: 15px;
+
+}
+
+
+
+.legend {
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    font-size: 13px;
+
+    padding: 10px;
+
+}
+
+
+
+.filters {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px;
+
+}
+
+
+
+.filters button {
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    background: #1565c0;
+
+    color: white;
+
+    font-size: 14px;
+
+}
+
+
+
+#map {
+
+    height: 70vh;
+
+}
+
+
+
+#info {
+
+    margin: 8px;
+
+    padding: 12px;
+
+}
+
+
+
+footer {
+
+    font-size: 12px;
+
+}
+
+
+}
