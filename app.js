@@ -106,6 +106,10 @@ function init() {
 
             map.geoObjects.add(marker);
 
+            markers.push({
+    marker: marker,
+    status: place.statusCode
+
 
         });
 
@@ -184,3 +188,33 @@ found.lng
 }
 
 );
+    
+function filterPlaces(type){
+
+
+markers.forEach(item => {
+
+
+    if(type === "all"){
+
+        item.marker.options.set(
+            "visible",
+            true
+        );
+
+    }
+
+    else {
+
+        item.marker.options.set(
+            "visible",
+            item.status === type
+        );
+
+    }
+
+
+});
+
+
+}
