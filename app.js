@@ -5,7 +5,9 @@ let places = [];
 ymaps.ready(init);
 
 
+
 function init() {
+
 
     map = new ymaps.Map("map", {
 
@@ -17,10 +19,11 @@ function init() {
         zoom: 8,
 
         controls: [
-            'zoomControl'
+            "zoomControl"
         ]
 
     });
+
 
 
     fetch("data/places.json")
@@ -29,13 +32,15 @@ function init() {
 
     .then(data => {
 
+
         places = data;
 
 
         data.forEach(place => {
 
 
-            let marker = new ymaps.Placemark(
+            let marker =
+            new ymaps.Placemark(
 
                 [
                     place.lat,
@@ -44,25 +49,57 @@ function init() {
 
                 {
 
+
                     balloonContent:
 
                     `
-                    <b>${place.name}</b>
-                    <br>
-                    Район: ${place.region}
-                    <br>
+
+                    <div class="card">
+
+                    <h3>
+                    ${place.name}
+                    </h3>
+
+
+                    <p>
+                    Район:
+                    ${place.region}
+                    </p>
+
+
+                    <p>
                     Статус:
+                    <b class="${place.statusCode}">
                     ${place.status}
+                    </b>
+                    </p>
+
+
+                    <p>
+                    Обновлено:
+                    ${place.updated}
+                    </p>
+
+
+                    <p>
+                    ℹ ${place.note}
+                    </p>
+
+
+                    </div>
+
                     `
 
                 },
 
+
                 {
 
                     preset:
-                    getColor(place.status)
+                    getColor(place.statusCode)
 
                 }
+
 
             );
 
@@ -80,16 +117,15 @@ function init() {
 
 
 
-function getColor(status) {
+
+function getColor(status){
 
 
-    if(status.includes("Нет"))
-
+    if(status === "red")
         return "islands#redDotIcon";
 
 
-    if(status.includes("Огранич"))
-
+    if(status === "yellow")
         return "islands#yellowDotIcon";
 
 
@@ -142,6 +178,7 @@ found.lng
 
 
 }
+
 
 
 }
