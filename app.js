@@ -167,39 +167,86 @@ function getColor(status){
 
 
 
-document
-.getElementById("search")
-.addEventListener(
+const searchInput =
+document.getElementById("search");
 
+
+const searchResults =
+document.getElementById("searchResults");
+
+
+
+searchInput.addEventListener(
 "input",
-
 function(){
 
 
 let text =
-this.value.toLowerCase();
+this.value.toLowerCase().trim();
+
+
+searchResults.innerHTML = "";
+
+
+if(text.length < 2){
+
+    return;
+
+}
 
 
 
-let found =
-places.find(place =>
+let results =
+places.filter(place =>
 
-place.name
-.toLowerCase()
-.includes(text)
+place.name.toLowerCase().includes(text)
+||
+place.region.toLowerCase().includes(text)
+||
+place.type.toLowerCase().includes(text)
 
 );
 
 
 
-if(found){
+results.forEach(place => {
+
+
+let item =
+document.createElement("div");
+
+
+item.className =
+"searchItem";
+
+
+
+item.innerHTML = `
+
+<b>${place.name}</b>
+
+<br>
+
+${place.region}
+
+<br>
+
+<span class="${place.statusCode}">
+${place.status}
+</span>
+
+`;
+
+
+
+item.onclick = function(){
 
 
 map.setCenter(
 
 [
-found.lat,
-found.lng
+place.lat,
+place.lng
 ],
 
 12
@@ -207,13 +254,53 @@ found.lng
 );
 
 
-}
+
+document.getElementById("placeName").innerHTML =
+place.name;
 
 
 
-}
+document.getElementById("placeStatus").innerHTML =
+"Статус: <b class='" 
++ place.statusCode +
+"'>" 
++ place.status +
+"</b>";
 
-);
+
+
+document.getElementById("placeRegion").innerHTML =
+"Район: " + place.region;
+
+
+
+document.getElementById("placeUpdated").innerHTML =
+"Обновлено: " + place.updated;
+
+
+
+document.getElementById("placeNote").innerHTML =
+"ℹ " + place.note;
+
+
+
+searchResults.innerHTML = "";
+
+searchInput.value = place.name;
+
+
+};
+
+
+
+searchResults.appendChild(item);
+
+
+
+});
+
+
+});
     
 function filterPlaces(type){
 
