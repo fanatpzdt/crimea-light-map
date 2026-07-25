@@ -42,6 +42,26 @@ placeholder="🔎 Поиск населённого пункта..."
 <div class="legend">
 
 <div>
+    <div class="filters">
+
+<button onclick="filterPlaces('all')">
+Все
+</button>
+
+<button onclick="filterPlaces('green')">
+🟢 Есть свет
+</button>
+
+<button onclick="filterPlaces('yellow')">
+🟡 Ограничения
+</button>
+
+<button onclick="filterPlaces('red')">
+🔴 Нет света
+</button>
+
+</div>
+    
 <span class="green"></span>
 Свет есть
 </div>
