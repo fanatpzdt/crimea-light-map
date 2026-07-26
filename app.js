@@ -1,3 +1,5 @@
+alert("app.js загрузился");
+
 let map;
 let places = [];
 let markers = [];
