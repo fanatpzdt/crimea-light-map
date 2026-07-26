@@ -167,3 +167,21 @@ function filterPlaces(type) {
     });
 
 }
+
+setInterval(() => {
+
+    fetch("data/places.json?" + Date.now())
+
+        .then(response => response.json())
+
+        .then(data => {
+
+            places = data;
+
+            loadMarkers();
+
+        })
+
+        .catch(console.error);
+
+}, 30000);
